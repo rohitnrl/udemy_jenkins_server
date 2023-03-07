@@ -1,0 +1,181 @@
+---
+# Source: jenkins/templates/jcasc-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "jenkins-jenkins-jcasc-config"
+  namespace: default
+  labels:
+    "app.kubernetes.io/name": jenkins
+    "helm.sh/chart": "jenkins-4.3.1"
+    "app.kubernetes.io/managed-by": "Helm"
+    "app.kubernetes.io/instance": "jenkins"
+    "app.kubernetes.io/component": "jenkins-controller"
+    jenkins-jenkins-config: "true"
+data:
+  jcasc-default-config.yaml: |-
+    credentials:
+      system:
+        domainCredentials:
+        - credentials:
+          - usernamePassword:
+              description: "github_token"
+              id: "baccdd6e-2eac-4e61-a614-52e780e5490f"
+              password: "{AQAAABAAAAAw55CLhpfeNgjG1JgoO8x8djM0FP+Rjj26pBqo/ZuMiSvLklaGdUWiZ4vjRpah4fawluhpmd8PMPQHf1KuhnsvGw==}"
+              scope: GLOBAL
+              username: "rohitnrl"
+    jenkins:
+      agentProtocols:
+      - "JNLP4-connect"
+      - "Ping"
+      authorizationStrategy:
+        loggedInUsersCanDoAnything:
+          allowAnonymousRead: false
+      clouds:
+      - kubernetes:
+          containerCap: 10
+          containerCapStr: "10"
+          jenkinsTunnel: "jenkins-agent.default.svc.cluster.local:50000"
+          jenkinsUrl: "https://jenkins:8080"
+          name: "kubernetes"
+          namespace: "default"
+          podLabels:
+          - key: "jenkins/jenkins-jenkins-agent"
+            value: "true"
+          serverUrl: "https://kubernetes.default"
+          templates:
+          - containers:
+            - alwaysPullImage: true
+              command: "/usr/local/bin/jenkins-slave"
+              image: "rnarul/jenkins-slave:3.0"
+              livenessProbe:
+                failureThreshold: 0
+                initialDelaySeconds: 0
+                periodSeconds: 0
+                successThreshold: 0
+                timeoutSeconds: 0
+              name: "jnlp"
+              resourceLimitCpu: "512m"
+              resourceLimitMemory: "512Mi"
+              resourceRequestCpu: "512m"
+              resourceRequestMemory: "512Mi"
+              workingDir: "/home/jenkins/agent"
+            id: "474be7705ac6cddeedf68ad2962972dd9921f64c6e534967402794fbf06a21ec"
+            label: "jenkins-jenkins-agent"
+            name: "default-udemy"
+            namespace: "default"
+            nodeUsageMode: NORMAL
+            podRetention: "never"
+            serviceAccount: "jenkins"
+            slaveConnectTimeout: 100
+            slaveConnectTimeoutStr: "100"
+            yamlMergeStrategy: "override"
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: true
+      disableRememberMe: false
+      labelAtoms:
+      - name: "Ci_CD_86-0rd81"
+      - name: "built-in"
+      - name: "ci-cd-86-0rd81-pzxkb-dmn6j"
+      - name: "default-udemy-ggqwf"
+      - name: "jenkins-jenkins-agent"
+      markupFormatter: "plainText"
+      mode: NORMAL
+      myViewsTabBar: "standard"
+      numExecutors: 0
+      primaryView:
+        all:
+          name: "all"
+      projectNamingStrategy: "standard"
+      quietPeriod: 5
+      remotingSecurity:
+        enabled: true
+      scmCheckoutRetryCount: 0
+      securityRealm:
+        local:
+          allowsSignup: false
+          enableCaptcha: false
+          users:
+          - id: "admin"
+            name: "Jenkins Admin"
+            properties:
+            - "apiToken"
+            - "mailer"
+            - "myView"
+            - preferredProvider:
+                providerId: "default"
+            - "timezone"
+      slaveAgentPort: 50000
+      updateCenter:
+        sites:
+        - id: "default"
+          url: "https://updates.jenkins.io/update-center.json"
+      views:
+      - all:
+          name: "all"
+      viewsTabBar: "standard"
+    globalCredentialsConfiguration:
+      configuration:
+        providerFilter: "none"
+        typeFilter: "none"
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      gitHooks:
+        allowedOnAgents: false
+        allowedOnController: false
+      gitHostKeyVerificationConfiguration:
+        sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
+      sSHD:
+        port: -1
+    unclassified:
+      buildDiscarders:
+        configuredBuildDiscarders:
+        - "jobBuildDiscarder"
+      fingerprints:
+        fingerprintCleanupDisabled: false
+        storage: "file"
+      gitSCM:
+        addGitTagAction: false
+        allowSecondFetch: false
+        createAccountBasedOnEmail: false
+        disableGitToolChooser: false
+        hideCredentials: false
+        showEntireCommitSummaryInChanges: false
+        useExistingAccountWithSameEmail: false
+      globalLibraries:
+        libraries:
+        - defaultVersion: "main"
+          name: "udemy-shared-library"
+          retriever:
+            modernSCM:
+              scm:
+                git:
+                  credentialsId: "baccdd6e-2eac-4e61-a614-52e780e5490f"
+                  id: "3f939dc5-ae8f-4973-b252-ea9af51dcb32"
+                  remote: "https://github.com/rohitnrl/udemy-shared-library.git"
+                  traits:
+                  - "gitBranchDiscovery"
+      location:
+        adminAddress: "address not configured yet <nobody@nowhere>"
+        url: "https://jenkins.udemy.thexbs.io/"
+      mailer:
+        charset: "UTF-8"
+        useSsl: false
+        useTls: false
+      pollSCM:
+        pollingThreadCount: 10
+    tool:
+      git:
+        installations:
+        - home: "git"
+          name: "Default"
+      mavenGlobalConfig:
+        globalSettingsProvider: "standard"
+        settingsProvider: "standard"
+
+
+
