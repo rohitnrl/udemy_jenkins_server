@@ -19,11 +19,29 @@ data:
         domainCredentials:
         - credentials:
           - usernamePassword:
-              description: "github_token"
-              id: "baccdd6e-2eac-4e61-a614-52e780e5490f"
-              password: "{AQAAABAAAAAw55CLhpfeNgjG1JgoO8x8djM0FP+Rjj26pBqo/ZuMiSvLklaGdUWiZ4vjRpah4fawluhpmd8PMPQHf1KuhnsvGw==}"
+              description: "admin-token"
+              id: "admin-token"
+              password: "{AQAAABAAAAAwmo4BEFBIN1Btl4VESjMXQH+hRiXmENsoxlpeaMLi/9oHJsdf6F/1pRBci73KpbZg+y8L5lco7R0KdgPZe1chKA==}"
               scope: GLOBAL
               username: "rohitnrl"
+          - usernamePassword:
+              description: "udemy-token"
+              id: "udemy-token"
+              password: "{AQAAABAAAAAwgTG/ti6k/xyv3+XFQaTMHxyuUNG5OddNtx+7kJPzDyQOGN/TRV0UDHKc9gdxS3foAWdMEXdHx7PF1fd48zreag==}"
+              scope: GLOBAL
+              username: "rohitnrl"
+          - usernamePassword:
+              description: "udemy-ci-token"
+              id: "udemy-ci-token"
+              password: "{AQAAABAAAAAwpmKCofotACABaoUfjPtmSTirJ3mUdZ63pQVaCB381VAtYZIHW/Y5BiuoHFFauBBESPYyo9X9Ale1UZBM1HW2gA==}"
+              scope: GLOBAL
+              username: "rohitnrl"
+          - file:
+              description: "ec2-key"
+              fileName: "web-app-key.pem"
+              id: "ec2-key"
+              scope: GLOBAL
+              secretBytes: "{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}"
     jenkins:
       agentProtocols:
       - "JNLP4-connect"
@@ -47,6 +65,21 @@ data:
           - containers:
             - alwaysPullImage: true
               command: "/usr/local/bin/jenkins-slave"
+              envVars:
+              - envVar:
+                  key: "JAVA_OPTS"
+                  value: "-Dcasc.reload.token=$(POD_NAME)  -Djavax.net.ssl.trustStore=/certs/trust.jks\
+                    \ -Djavax.net.ssl.trustStorePassword=jenkins -Djavax.net.debug=ssl:handshake:verbose"
+              - secretEnvVar:
+                  key: "AWS_ACCESS_KEY_ID"
+                  optional: false
+                  secretKey: "aws_access_key_id"
+                  secretName: "aws-secret"
+              - secretEnvVar:
+                  key: "AWS_SECRET_ACCESS_KEY"
+                  optional: false
+                  secretKey: "aws_secret_access_key"
+                  secretName: "aws-secret"
               image: "rnarul/jenkins-slave:3.0"
               livenessProbe:
                 failureThreshold: 0
@@ -64,7 +97,7 @@ data:
             label: "jenkins-jenkins-agent"
             name: "default-udemy"
             namespace: "default"
-            nodeUsageMode: NORMAL
+            nodeUsageMode: "NORMAL"
             podRetention: "never"
             serviceAccount: "jenkins"
             slaveConnectTimeout: 100
@@ -75,10 +108,7 @@ data:
           excludeClientIPFromCrumb: true
       disableRememberMe: false
       labelAtoms:
-      - name: "Ci_CD_86-0rd81"
       - name: "built-in"
-      - name: "ci-cd-86-0rd81-pzxkb-dmn6j"
-      - name: "default-udemy-ggqwf"
       - name: "jenkins-jenkins-agent"
       markupFormatter: "plainText"
       mode: NORMAL
@@ -154,7 +184,7 @@ data:
             modernSCM:
               scm:
                 git:
-                  credentialsId: "baccdd6e-2eac-4e61-a614-52e780e5490f"
+                  credentialsId: "admin-token"
                   id: "3f939dc5-ae8f-4973-b252-ea9af51dcb32"
                   remote: "https://github.com/rohitnrl/udemy-shared-library.git"
                   traits:
@@ -176,6 +206,7 @@ data:
       mavenGlobalConfig:
         globalSettingsProvider: "standard"
         settingsProvider: "standard"
+
 
 
 
