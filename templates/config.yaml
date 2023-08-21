@@ -37,3 +37,5 @@ data:
     git:4.13.0
     configuration-as-code:1625.v27444588cc3d
     pipeline-stage-view:2.31
+    saml:4.369.v13507586ef8c
+    matrix-auth:3.1.5
