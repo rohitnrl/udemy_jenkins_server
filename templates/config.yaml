@@ -23,7 +23,7 @@ data:
     rm -rf /usr/share/jenkins/ref/plugins/*.lock
     version () { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
     if [ -f "/usr/share/jenkins/jenkins.war" ] && [ -n "$(command -v jenkins-plugin-cli)" 2>/dev/null ] && [ $(version $(jenkins-plugin-cli --version)) -ge $(version "2.1.1") ]; then
-      jenkins-plugin-cli --verbose --war "/usr/share/jenkins/jenkins.war" --plugin-file "/var/jenkins_home/plugins.txt" --latest true;
+      jenkins-plugin-cli --verbose --war "/usr/share/jenkins/jenkins.war" --plugin-file "/var/jenkins_home/plugins.txt" --latest false;
     else
       /usr/local/bin/install-plugins.sh `echo $(cat /var/jenkins_home/plugins.txt)`;
     fi
@@ -33,9 +33,6 @@ data:
     echo "finished initialization"
   plugins.txt: |-
     kubernetes:3883.v4d70a_a_a_df034
-    workflow-aggregator:590.v6a_d052e5a_a_b_5
     git:4.13.0
-    configuration-as-code:1625.v27444588cc3d
-    pipeline-stage-view:2.31
     saml:4.369.v13507586ef8c
     matrix-auth:3.1.5
